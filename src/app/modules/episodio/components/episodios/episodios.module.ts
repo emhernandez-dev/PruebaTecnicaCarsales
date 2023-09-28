@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EpisodiosComponent } from './episodios.component';
+import { DetalleEpisodioModule } from '../detalle-episodio/detalle-episodio.module';
 
 
 
@@ -9,7 +10,7 @@ import { EpisodiosComponent } from './episodios.component';
     EpisodiosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, DetalleEpisodioModule
   ],
   exports: [
     EpisodiosComponent

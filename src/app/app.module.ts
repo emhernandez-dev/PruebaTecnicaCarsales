@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutRootComponent } from './modules/layout-root.component';
+import { NavbarModule } from './shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LayoutRootComponent } from './modules/layout-root.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

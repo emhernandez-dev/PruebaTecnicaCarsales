@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -7,29 +7,35 @@ export class FavoritosService {
 
   private favoritosKey = 'favoritos';
 
-  getFavoritos(): string[] {
+  eventoEnFavorito: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  emitirEvento() {
+    this.eventoEnFavorito.emit();
+  }
+
+  getFavoritos(): any[] {
     const favoritosStr = localStorage.getItem(this.favoritosKey);
     return favoritosStr ? JSON.parse(favoritosStr) : [];
   }
 
-  agregarFavorito(favorito: string): void {
+  agregarFavorito(favorito: any): void {
     const favoritos = this.getFavoritos();
     favoritos.push(favorito);
     localStorage.setItem(this.favoritosKey, JSON.stringify(favoritos));
   }
 
-  eliminarFavorito(favorito: string): void {
+  eliminarFavorito(favorito: any): void {
     const favoritos = this.getFavoritos();
-    const index = favoritos.indexOf(favorito);
+    const index = favoritos.findIndex(favorito => favorito.id === favorito.id);
     if (index !== -1) {
       favoritos.splice(index, 1);
       localStorage.setItem(this.favoritosKey, JSON.stringify(favoritos));
     }
   }
 
-  esFavorito(favorito: string): boolean {
+  esFavorito(favoritoId: number): boolean {
     const favoritos = this.getFavoritos();
-    return favoritos.includes(favorito);
+    return favoritos.some(favorito => favorito.id === favoritoId);
   }
 
   // Data:

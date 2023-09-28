@@ -1,4 +1,59 @@
-<p>episodios works!</p>
+<h2 class="pb-2 border-bottom mt-4">{{ titulo }}</h2>
+
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let episodio of episodios">
+
+    <div class="card mb-3" style="height: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4" style="background-color: #f0f0f0">
+          <img src="https://rickandmortyapi.com/api/character/avatar/19.jpeg" class="card-img-top custom-img-size"
+            alt="Antenna Rick">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body d-flex flex-column" style="height: 100%;">
+            <div class="d-flex"> <!-- Crear una fila -->
+              <h5 class="card-title flex-grow-1" style="color:#046478">{{ episodio.name }}</h5>
+              <i class="bi" [class.bi-heart-fill]="isFavorito(episodio.id)" [class.bi-heart]="!isFavorito(episodio.id)"
+                (click)="toggleFavorito(episodio)"></i>
+            </div>
+            <p class="card-text flex-grow-1">Este es el episodio {{ episodio.name }}</p>
+            <button class="btn btn-light mt-2 text-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample" (click)="getEpisodio(episodio)">
+              Episodio {{ episodio.episode }} <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
-{{ episodios|json}}
+<div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Detalles del episodio</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="card w-100" *ngIf="episodioDetalle">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">{{ episodioDetalle.name }}</h5>
+        <p class="card-text">Este episodio fue puesto al aire en {{ episodioDetalle.air_date }}</p>
+        <!-- <a href="#" class="btn btn-primary">Ver más detalle</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<pre>
+  <code>
+    {{ episodioDetalle|json}}
+  </code>
+</pre>

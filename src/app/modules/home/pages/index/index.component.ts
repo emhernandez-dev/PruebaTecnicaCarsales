@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-index',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
+
+  constructor(private titleService: Title) { }
+
+  ngOnInit(): void {
+    this.titleService.setTitle(`R&M | Home`);
+  }
 
 }

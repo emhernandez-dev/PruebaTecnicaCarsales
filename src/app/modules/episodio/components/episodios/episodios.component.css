@@ -1,0 +1,12 @@
+.custom-img-size {
+  width: 100%; /* Cambia el valor según el tamaño que desees */
+  height: auto; /* Esto asegura que la imagen mantenga su proporción original */
+}
+.custom-heart-icon.bi-heart-fill {
+  /* Estilos para el corazón lleno */
+  color: red; /* Cambia el color según tus preferencias */
+}
+
+
+
+

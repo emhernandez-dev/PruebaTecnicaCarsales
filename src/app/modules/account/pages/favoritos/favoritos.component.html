@@ -1,3 +1,20 @@
-<p>favoritos works!</p>
 
-{{favoritos|json}}
+<main *ngIf="favoritos.length === 0">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Rick & Morty</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">¡Explora el mundo de Rick & Morty y encuentra tus episodios favoritos!</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a type="button" class="btn btn-primary btn-lg px-4 gap-3" [routerLink]="['/episodio']">Ver episodios</a>
+        <a type="button" class="btn btn-outline-secondary btn-lg px-4" [routerLink]="['/']">Ir al inicio</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="container">
+  <app-episodios [episodios]="favoritos" titulo="Capitulos favoritos" *ngIf="favoritos.length > 0"></app-episodios>
+</div>
+
+
+<!-- {{favoritos|json}} -->

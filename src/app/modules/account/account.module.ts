@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { AccountRoutingModule } from './account-routing.module';
+import { EpisodiosModule } from '../episodio/components/episodios/episodios.module';
 
 
 
@@ -11,7 +12,8 @@ import { AccountRoutingModule } from './account-routing.module';
   ],
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    EpisodiosModule
   ]
 })
 export class AccountModule { }
